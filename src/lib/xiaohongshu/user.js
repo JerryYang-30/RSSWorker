@@ -64,7 +64,6 @@ let deal = async (ctx) => {
 		}
 		return collect.data.notes.map((item) => ({
 			title: item.display_title,
-			link: `${url}/${item.note_id}`,
 			description: `<img src ="${item.cover.info_list.pop().url}"><br>${item.display_title}`,
 			author: item.user.nickname,
 			upvotes: item.interact_info.likedCount,
@@ -77,7 +76,6 @@ let deal = async (ctx) => {
 			title,
 			description,
 			image,
-			link: url,
 			items: category === 'notes' ? renderNote(notes) : renderCollect(collect),
 		})
 	);
