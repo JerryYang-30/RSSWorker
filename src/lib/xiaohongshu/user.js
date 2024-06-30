@@ -47,12 +47,11 @@ let deal = async (ctx) => {
 		notes.flatMap((n) =>
 			n.map(({ noteCard }) => ({
 				// Qi Reader用Id判断文章是否重复
-				guid: noteCard.cover.infoList.pop().url, // 使用封面链接作为ID,
+				guid: `${noteCard.cover.infoList.pop().url}`, // 使用封面链接作为ID,
 				title: noteCard.displayTitle,
 				// 现在必须要登陆才能获取笔记链接，所以文章link都是{url}了（noteId为空）。
 				// 而Qi Reader把文章链接当作文章Id（如果源里没有Id字段的话），所以所有文章共用一个链接就导致了新文章被判定重复。
-				// link: `${url}/${noteCard.noteId}`,
-				link: `${noteCard.cover.infoList.pop().url}`,
+				link: `${url}/${noteCard.noteId}`,
 				description: `<img src ="${noteCard.cover.infoList.pop().url}"><br>${noteCard.displayTitle}`,
 				author: noteCard.user.nickname,
 				upvotes: noteCard.interactInfo.likedCount,
