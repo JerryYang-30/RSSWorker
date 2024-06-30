@@ -50,7 +50,7 @@ let deal = async (ctx) => {
 				// 现在必须要登陆才能获取笔记链接，所以文章link都是{url}了（noteId为空）。
 				// 而Qi Reader把文章链接当作文章Id（如果源里没有Id字段的话），所以所有文章共用一个链接就导致了新文章被判定重复。
 				link: `${url}/${noteCard.noteId}`,
-				id: ${noteCard.cover.infoList.pop().url,
+				id: `${noteCard.cover.infoList.pop().url}`,
 				description: `<img src ="${noteCard.cover.infoList.pop().url}"><br>${noteCard.displayTitle}`,
 				author: noteCard.user.nickname,
 				upvotes: noteCard.interactInfo.likedCount,
