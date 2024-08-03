@@ -54,7 +54,7 @@ let deal = async (ctx) => {
 				author: noteCard.user.nickname,
 				upvotes: noteCard.interactInfo.likedCount,
 				// Qi Reader用Id判断文章是否重复
-				guid: noteCard.cover.infoList.pop().url.slice(-51), // 小红书封面链接随时间变化，因此使用最后不变的51个字符作为ID
+				guid: noteCard.cover.infoList.pop().url.slice(-57), // 小红书封面链接随时间变化，因此使用最后不变的57个字符作为ID
 			}))
 		);
 	const renderCollect = (collect) => {
